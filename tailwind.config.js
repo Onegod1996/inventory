@@ -1,0 +1,116 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#FF7514', // RAL 2003 Signal Orange
+          50: '#FFF2E9',
+          100: '#FFE5D3',
+          200: '#FFCBA6',
+          300: '#FFB179',
+          400: '#FF974C',
+          500: '#FF7514', // base
+          600: '#E66400',
+          700: '#B34D00',
+          800: '#803700',
+          900: '#4D2100',
+        },
+        secondary: {
+          DEFAULT: '#1D2F3A',
+          50: '#E8EBED',
+          100: '#D1D8DC',
+          200: '#A3B1B9',
+          300: '#758A95',
+          400: '#476372',
+          500: '#1D2F3A', // base
+          600: '#182931',
+          700: '#132028',
+          800: '#0E171F',
+          900: '#090E15',
+        },
+        success: {
+          DEFAULT: '#10B981',
+          50: '#E6F6F0',
+          100: '#CCEEE2',
+          200: '#99DDC4',
+          300: '#66CBA7',
+          400: '#33BA89',
+          500: '#10B981', // base
+          600: '#0DA774',
+          700: '#0A8259',
+          800: '#075E3F',
+          900: '#043A24',
+        },
+        warning: {
+          DEFAULT: '#F59E0B',
+          50: '#FEF6E7',
+          100: '#FDECCE',
+          200: '#FBD99D',
+          300: '#F9C66C',
+          400: '#F7B33B',
+          500: '#F59E0B', // base
+          600: '#DD8E0A',
+          700: '#AC6F08',
+          800: '#7B4F06',
+          900: '#4A3003',
+        },
+        error: {
+          DEFAULT: '#EF4444',
+          50: '#FDEDED',
+          100: '#FBDADA',
+          200: '#F7B5B5',
+          300: '#F39090',
+          400: '#EF6B6B',
+          500: '#EF4444', // base
+          600: '#D73D3D',
+          700: '#A82F2F',
+          800: '#792222',
+          900: '#491414',
+        },
+        neutral: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+        },
+      },
+      animation: {
+        'slide-in': 'slide-in 0.3s ease-out',
+        'slide-out': 'slide-out 0.3s ease-in',
+        'fade-in': 'fade-in 0.3s ease-out',
+        'fade-out': 'fade-out 0.3s ease-in',
+      },
+      keyframes: {
+        'slide-in': {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        'slide-out': {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        },
+        'fade-out': {
+          '0%': { opacity: 1 },
+          '100%': { opacity: 0 },
+        },
+      },
+      boxShadow: {
+        'glossy': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1) inset',
+        'glossy-sm': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.05) inset',
+      },
+    },
+  },
+  plugins: [],
+}
