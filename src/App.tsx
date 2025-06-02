@@ -27,20 +27,20 @@ function App() {
       <Routes>
         {isAuthenticated ? (
           <>
-            <Route path="/\" element={<InventoryDashboardPage />} />
+            <Route path="/" element={<InventoryDashboardPage />} />
             <Route path="/incoming" element={<IncomingArticlesPage />} />
             <Route path="/bom" element={<BOMPage />} />
             <Route path="/out" element={<InventoryOutPage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/vendors" element={<VendorsPage />} />
-            <Route path="/login" element={<Navigate to="/\" replace />} />
+            <Route path="/login" element={<Navigate to="/" replace />} />
             <Route path="/404" element={<NotFoundPage />} />
-            <Route path="*" element={<Navigate to="/404\" replace />} />
+            <Route path="*" element={<Navigate to="/404" replace />} />
           </>
         ) : (
           <>
             <Route path="/login" element={<LoginPage />} />
-            <Route path="*" element={<Navigate to="/login\" replace />} />
+            <Route path="*" element={<Navigate to="/login" replace />} />
           </>
         )}
       </Routes>
