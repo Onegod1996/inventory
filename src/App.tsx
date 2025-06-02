@@ -6,6 +6,7 @@ import IncomingArticlesPage from './pages/IncomingArticlesPage';
 import InventoryOutPage from './pages/InventoryOutPage';
 import ReportsPage from './pages/ReportsPage';
 import VendorsPage from './pages/VendorsPage';
+import BOMPage from './pages/BOMPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ErrorBoundary from './components/ErrorBoundary';
 import { useAppContext } from './context/AppContext';
@@ -13,7 +14,6 @@ import { useAppContext } from './context/AppContext';
 function App() {
   const { isInitialized, isAuthenticated } = useAppContext();
 
-  // Show loading state while context initializes
   if (!isInitialized) {
     return (
       <div className="min-h-screen bg-neutral-50 flex items-center justify-center">
@@ -29,6 +29,7 @@ function App() {
           <>
             <Route path="/" element={<InventoryDashboardPage />} />
             <Route path="/incoming" element={<IncomingArticlesPage />} />
+            <Route path="/bom" element={<BOMPage />} />
             <Route path="/out" element={<InventoryOutPage />} />
             <Route path="/reports" element={<ReportsPage />} />
             <Route path="/vendors" element={<VendorsPage />} />
@@ -47,4 +48,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

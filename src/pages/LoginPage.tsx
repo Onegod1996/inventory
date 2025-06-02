@@ -9,7 +9,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../compone
 const LoginPage: React.FC = () => {
   const navigate = useNavigate();
   
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,42 +19,32 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     setError('');
     
-    // Simple validation
-    if (!email || !password) {
-      setError('Please enter both email and password');
+    if (!username || !password) {
+      setError('Please enter both username and password');
       return;
     }
     
-    // Mock authentication (in a real app, this would call an API)
     setIsLoading(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    // Check credentials
+    if (username === 'DTH002' && password === '12345') {
+      setTimeout(() => {
+        setIsLoading(false);
+        navigate('/');
+      }, 1000);
+    } else {
       setIsLoading(false);
-      
-      // For demo purposes, any login works
-      navigate('/');
-      
-      // In a real app, you'd check credentials and handle errors
-      // if (email === 'admin@vikasdrones.com' && password === 'password') {
-      //   navigate('/');
-      // } else {
-      //   setError('Invalid email or password');
-      // }
-    }, 1000);
+      setError('Invalid username or password');
+    }
   };
   
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-neutral-50 p-4">
       <div className="mb-8 text-center">
         <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-primary-500 shadow-glossy">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4.5L4 8L12 11.5L20 8L12 4.5Z" fill="white"/>
-            <path d="M4 12L12 15.5L20 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M4 16L12 19.5L20 16" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <Package className="h-8 w-8 text-white" />
         </div>
-        <h1 className="text-3xl font-bold text-neutral-900">Vikas Drones</h1>
+        <h1 className="text-3xl font-bold text-neutral-900">Dronacharya Tech Hub</h1>
         <p className="text-neutral-500">Inventory Management System</p>
       </div>
       
@@ -72,14 +62,13 @@ const LoginPage: React.FC = () => {
           <form onSubmit={handleSubmit}>
             <div className="space-y-4">
               <Input
-                label="Email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                label="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
                 fullWidth
-                placeholder="Enter your email"
-                autoComplete="email"
+                placeholder="Enter your username"
+                autoComplete="username"
               />
               
               <Input
@@ -101,26 +90,6 @@ const LoginPage: React.FC = () => {
                   </button>
                 }
               />
-              
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className="checkbox"
-                  />
-                  <label htmlFor="remember-me" className="ml-2 block text-sm text-neutral-700">
-                    Remember me
-                  </label>
-                </div>
-                
-                <div className="text-sm">
-                  <a href="#" className="font-medium text-primary-600 hover:text-primary-700">
-                    Forgot password?
-                  </a>
-                </div>
-              </div>
             </div>
             
             <div className="mt-6">
@@ -139,7 +108,7 @@ const LoginPage: React.FC = () => {
         </CardContent>
         <CardFooter className="flex justify-center border-t border-neutral-200 p-4">
           <p className="text-center text-sm text-neutral-600">
-            © 2025 Vikas Drone Systems. All rights reserved.
+            © 2025 Dronacharya Tech Hub. All rights reserved.
           </p>
         </CardFooter>
       </Card>
